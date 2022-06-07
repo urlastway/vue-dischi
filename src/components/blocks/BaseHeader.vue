@@ -1,7 +1,9 @@
 <template>
-  <header class="header">
+  <header class="header__inner">
     <div class="container">
-      <h1></h1>
+      <div class="header__logo">
+        <img src="../../assets/img/spotify-logo.png">
+      </div>
     </div>
   </header>
 </template>
@@ -13,8 +15,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header{
-  background-color: #000000;
-  padding: 40px 0;
+.header__inner{
+    background-color: var(--background__header__color);
+}
+.header__logo {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    
+    
+  
+    img{
+    max-width: 100%;
+    max-height: 7vh;
+  }
 }
 </style>
