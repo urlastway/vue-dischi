@@ -1,8 +1,8 @@
 <template>
   <section>
       <div class="container">
-          <div class="row">
-              <div class="col-12 col-sm-6 col-lg-3" v-for="index in 12" :key="index"><CardCharacter/></div>
+          <div class="songslist row">
+              <CardCharacter class="col-12 col-sm-4 col-lg-2 " v-for="(character, index) in characters.response" :key="index" :character="character"/>
           </div>
       </div>
   </section>
@@ -38,5 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    .songslist{
+        justify-content: center;
+    }
 </style>
