@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <div class="songslist">
+    <div class="main__padding">
       <SectionsCharacters/>
     </div>
   </main>
@@ -22,8 +22,10 @@ export default {
 <style lang="scss" scoped>
 .main{
   background-color: var(--background__main__color);
-}
-.songslist{
-  padding: 6rem 0;
+  color: var(--main__title__color);
+
+  &__padding{
+    padding: 6rem 0;
+  }
 }
 </style>
