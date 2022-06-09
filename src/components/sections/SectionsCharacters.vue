@@ -1,6 +1,9 @@
 <template>
   <section>
       <div class="container">
+          <div class="row">
+                <SearchBar class="col-12"/>
+          </div>
           <div class="songslist row">
               <CardCharacter class="col-12 col-sm-4 col-lg-2 " v-for="(character, index) in characters.response" :key="index" :character="character"/>
           </div>
@@ -11,7 +14,8 @@
 <script>
 
 import axios from 'axios';
-import CardCharacter from '../commons/CardCharacter'
+import CardCharacter from '../commons/CardCharacter';
+import SearchBar from '../commons/SearchBar';
 
 export default {
     name: 'SectionsCharacters',
@@ -21,7 +25,8 @@ export default {
         };
     },
     components:{
-        CardCharacter
+        CardCharacter,
+        SearchBar,
     },
     created() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
