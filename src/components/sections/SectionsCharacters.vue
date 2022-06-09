@@ -5,7 +5,7 @@
                 <SearchBar class="col-12" @searching="filterCharacters"/>
           </div>
           <div class="songslist row">
-              <CardCharacter class="col-12 col-sm-4 col-lg-2 " v-for="(character, index) in characters.response" :key="index" :character="character"/>
+              <CardCharacter class="col-12 col-sm-4 col-lg-2 " v-for="(character, index) in charactersFilter" :key="index" :character="character"/>
           </div>
       </div>
   </section>
@@ -33,8 +33,8 @@ export default {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((response) => {
             // handle success
-            this.characters = response.data;
-            this.charactersFilter = response.data;
+            this.characters = response.data.response;
+            this.charactersFilter = response.data.response;
         })
         .catch((error) => {
             // handle error
@@ -43,8 +43,8 @@ export default {
     },
     methods: {
         filterCharacters(readComponent){
-            this.charactersFilter = this.characters.filter((element) => element.response.genre.toLowerCase().includes(readComponent.toLowerCase()));
-        }
+            this.charactersFilter = this.characters.filter((element) => element.genre.toLowerCase().includes(readComponent.toLowerCase()));
+        },
     }
 }
 </script>
