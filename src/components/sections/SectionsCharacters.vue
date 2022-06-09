@@ -2,7 +2,7 @@
   <section>
       <div class="container">
           <div class="row">
-                <SearchBar class="col-12"/>
+                <SearchBar class="col-12" @searching="filterCharacters"/>
           </div>
           <div class="songslist row">
               <CardCharacter class="col-12 col-sm-4 col-lg-2 " v-for="(character, index) in characters.response" :key="index" :character="character"/>
@@ -22,6 +22,7 @@ export default {
     data(){
         return{
             characters: [],
+            charactersFilter: [],
         };
     },
     components:{
@@ -33,11 +34,17 @@ export default {
         .then((response) => {
             // handle success
             this.characters = response.data;
+            this.charactersFilter = response.data;
         })
         .catch((error) => {
             // handle error
             console.log(error);
         })
+    },
+    methods: {
+        filterCharacters(readComponent){
+            this.charactersFilter = this.characters.filter((element) => element.response.genre.toLowerCase().includes(readComponent.toLowerCase()));
+        }
     }
 }
 </script>
